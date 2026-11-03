@@ -1,0 +1,35 @@
+---
+title: Find Us
+description: Find the Thai Sizzle food truck at the Mabank Food Truck Park, 207 E Market St, Mabank, TX 75169. Hours, directions and phone.
+permalink: /find-us/
+---
+{%- assign b = site.business -%}
+{%- capture addr -%}{{ b.street }}, {{ b.city }}, {{ b.region }} {{ b.postal }}{%- endcapture -%}
+<section class="page-head">
+  <div class="container">
+    <h1>Find Us</h1>
+    <p class="lead">You'll find our yellow truck at the {{ b.location_name }}.</p>
+  </div>
+</section>
+
+<div class="container split section">
+  <div>
+    <h2>Location</h2>
+    <address class="big-address">
+      <strong>{{ b.location_name }}</strong><br>
+      {{ addr }}
+    </address>
+    <p><a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query={{ addr | url_encode }}" rel="noopener">Open in Google Maps</a></p>
+    <h2>Order ahead</h2>
+    <p>Skip the wait. Call <a href="tel:{{ b.phone_raw }}">{{ b.phone }}</a> and your food will be ready when you arrive.</p>
+    {% include order-button.html class="btn-outline" %}
+  </div>
+  <div>
+    <h2>Hours</h2>
+    {% include hours.html %}
+    <div class="map">
+      <iframe title="Map to {{ b.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q={{ addr | url_encode }}&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</div>

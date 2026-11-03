@@ -1,0 +1,79 @@
+---
+title: Authentic Thai Food Truck in Mabank, TX
+---
+{%- assign b = site.business -%}
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow">{{ b.location_name }} · {{ b.city }}, {{ b.region }}</p>
+    <h1>Real Thai street food,<br>made fresh to order.</h1>
+    <p class="lead">Wok-fired noodles, basil stir-fry, grilled pork skewers and Thai iced tea. No hour-long drive required.</p>
+    <div class="cta-row">
+      {% include order-button.html %}
+      <a class="btn btn-ghost" href="{{ '/menu/' | relative_url }}">See the Menu</a>
+    </div>
+    <p class="hero-phone">Call ahead: <a href="tel:{{ b.phone_raw }}">{{ b.phone }}</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Fan favorites</h2>
+    <div class="card-grid">
+      {%- for section in site.data.menu -%}
+        {%- for item in section.items -%}
+          {%- if item.tags contains "popular" -%}
+          <article class="card">
+            <h3>{{ item.name }}{% if item.thai %} <span class="thai" lang="th">{{ item.thai }}</span>{% endif %}</h3>
+            <p>{{ item.description }}</p>
+          </article>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+    <p class="center"><a class="btn btn-outline" href="{{ '/menu/' | relative_url }}">Full menu</a></p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container split">
+    <div>
+      <h2 class="section-title">Find the truck</h2>
+      <address class="big-address">
+        <strong>{{ b.location_name }}</strong><br>
+        {{ b.street }}, {{ b.city }}, {{ b.region }} {{ b.postal }}
+      </address>
+      <p><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query={{ b.street | append: ', ' | append: b.city | append: ', ' | append: b.region | append: ' ' | append: b.postal | url_encode }}" rel="noopener">Get directions</a></p>
+    </div>
+    <div>
+      <h2 class="section-title">Hours</h2>
+      {% include hours.html %}
+    </div>
+  </div>
+</section>
+
+{%- if site.data.reviews.size > 0 %}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">What neighbors are saying</h2>
+    <div class="card-grid">
+      {%- for r in site.data.reviews %}
+      <figure class="card quote">
+        <blockquote>“{{ r.quote }}”</blockquote>
+        <figcaption>— {{ r.name }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if site.restaurant_teaser.enabled %}
+<section class="section teaser">
+  <div class="container narrow center">
+    <p class="eyebrow">Coming soon</p>
+    <h2>{{ site.restaurant_teaser.heading }}</h2>
+    <p>{{ site.restaurant_teaser.text }}</p>
+    <a class="btn btn-light" href="{{ b.facebook }}" rel="noopener">Follow on Facebook</a>
+  </div>
+</section>
+{%- endif %}

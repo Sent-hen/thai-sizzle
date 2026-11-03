@@ -1,0 +1,18 @@
+<table class="hours">
+  <caption class="visually-hidden">Hours of operation</caption>
+  <tbody>
+  {%- for d in site.data.hours.days %}
+    <tr>
+      <th scope="row">{{ d.day }}</th>
+      <td>
+        {%- if d.closed -%}Closed{%- else -%}
+          {%- assign o = "2000-01-01 " | append: d.opens | date: "%-l:%M %p" -%}
+          {%- assign c = "2000-01-01 " | append: d.closes | date: "%-l:%M %p" -%}
+          {{ o }} – {{ c }}
+        {%- endif -%}
+      </td>
+    </tr>
+  {%- endfor %}
+  </tbody>
+</table>
+<p class="small muted">{{ site.data.hours.note }}</p>

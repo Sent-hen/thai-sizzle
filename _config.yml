@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------
+# Thai Sizzle — site settings
+# Most day-to-day edits live in _data/ (menu, hours, reviews).
+# ---------------------------------------------------------------
+title: Thai Sizzle
+tagline: Authentic Thai street food in Mabank, Texas
+description: >-
+  Thai Sizzle is a family-run Thai food truck at the Mabank Food Truck Park
+  serving pad thai, pad see ew, drunken noodles, noodle soup, grilled pork
+  skewers and more. Call ahead or order online.
+lang: en-US
+timezone: America/Chicago
+
+# Set this when the custom domain is live (e.g. https://thaisizzle.com)
+url: "https://sent-hen.github.io"
+baseurl: "/thai-sizzle"
+
+# ---------------- Business details ----------------
+business:
+  name: Thai Sizzle
+  type: food_truck            # change to "restaurant" when the restaurant opens
+  phone: "(469) 722-2700"
+  phone_raw: "+14697222700"
+  location_name: Mabank Food Truck Park
+  street: 207 E Market St
+  city: Mabank
+  region: TX
+  postal: "75169"
+  country: US
+  lat: 32.3665
+  lng: -96.1008
+  cuisine: Thai
+  price_range: "$$"
+  # Squarespace online ordering / checkout page. Leave blank to fall back to "Call to order".
+  order_url: ""
+  facebook: https://www.facebook.com/profile.php?id=61578590502909
+
+# Shown on the home page "coming soon" banner. Set enabled: false to hide.
+restaurant_teaser:
+  enabled: true
+  heading: A brick-and-mortar Thai Sizzle is on the way
+  text: >-
+    We're working toward opening a sit-down restaurant here in Mabank.
+    Follow us on Facebook to be the first to hear about the opening date.
+
+# ---------------- Build ----------------
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+  sass_dir: _sass
+
+defaults:
+  - scope: { path: "" }
+    values:
+      layout: default
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+  - .jekyll-cache

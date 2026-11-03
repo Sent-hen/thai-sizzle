@@ -1,0 +1,31 @@
+{%- assign b = site.business -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{% if b.type == 'restaurant' %}Restaurant{% else %}FoodEstablishment{% endif %}",
+  "name": {{ b.name | jsonify }},
+  "description": {{ site.description | strip | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "telephone": {{ b.phone_raw | jsonify }},
+  "servesCuisine": {{ b.cuisine | jsonify }},
+  "priceRange": {{ b.price_range | jsonify }},
+  "menu": {{ '/menu/' | absolute_url | jsonify }},
+  "acceptsReservations": false,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ b.street | jsonify }},
+    "addressLocality": {{ b.city | jsonify }},
+    "addressRegion": {{ b.region | jsonify }},
+    "postalCode": {{ b.postal | jsonify }},
+    "addressCountry": {{ b.country | jsonify }}
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": {{ b.lat }}, "longitude": {{ b.lng }} },
+  "openingHoursSpecification": [
+    {%- assign open_days = site.data.hours.days | where_exp: "d", "d.closed != true" -%}
+    {%- for d in open_days %}
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/{{ d.day }}", "opens": "{{ d.opens }}", "closes": "{{ d.closes }}" }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "sameAs": [{{ b.facebook | jsonify }}]
+}
+</script>

@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+      <span class="brand-mark" aria-hidden="true">🔥</span>
+      <span class="brand-name">Thai <em>Sizzle</em></span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        {%- assign nav = "Menu:/menu/,Find Us:/find-us/,About:/about/" | split: "," -%}
+        {%- for item in nav -%}
+          {%- assign parts = item | split: ":" -%}
+          {%- assign href = parts[1] | relative_url -%}
+          <li><a href="{{ href }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
+        {%- endfor -%}
+        <li>{% include order-button.html class="btn-primary btn-sm" %}</li>
+      </ul>
+    </nav>
+  </div>
+</header>

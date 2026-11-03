@@ -1,0 +1,6 @@
+{%- assign b = site.business -%}
+{%- if b.order_url and b.order_url != "" -%}
+<a class="btn {{ include.class | default: 'btn-primary' }}" href="{{ b.order_url }}" rel="noopener">Order Online</a>
+{%- else -%}
+<a class="btn {{ include.class | default: 'btn-primary' }}" href="tel:{{ b.phone_raw }}">Call to Order</a>
+{%- endif -%}
