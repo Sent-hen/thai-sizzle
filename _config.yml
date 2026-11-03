@@ -25,12 +25,12 @@ business:
   street: 207 E Market St
   city: Mabank
   region: TX
-  postal: "75169"
+  postal: "75147"
   country: US
-  lat: 32.3665
-  lng: -96.1008
+  lat: 32.3659477
+  lng: -96.0983153
   cuisine: Thai
-  price_range: "$$"
+  price_range: "$10–20"
   # Squarespace online ordering / checkout page. Leave blank to fall back to "Call to order".
   order_url: ""
   facebook: https://www.facebook.com/profile.php?id=61578590502909
@@ -58,6 +58,7 @@ defaults:
   - scope: { path: "" }
     values:
       layout: default
+      image: /assets/images/og-image.jpg
 
 exclude:
   - README.md
@@ -65,4 +66,5 @@ exclude:
   - Gemfile.lock
   - vendor
   - .github
+  - scripts
   - .jekyll-cache

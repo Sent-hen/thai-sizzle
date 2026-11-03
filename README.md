@@ -12,7 +12,9 @@ Most changes are a one-file edit. No coding is needed:
 | --- | --- |
 | Menu items, descriptions, prices | `_data/menu.yml` |
 | Hours | `_data/hours.yml` |
-| Customer quotes | `_data/reviews.yml` |
+| Featured reviews (hand-picked, word-for-word) | `_data/reviews.yml` |
+| Google star rating and review count | `_data/google.yml` (auto-refreshed weekly) |
+| Photo gallery | `_data/gallery.yml` and `assets/images/food/` |
 | Phone, address, Squarespace order link, Facebook | `_config.yml` → `business:` |
 | "Restaurant coming soon" banner | `_config.yml` → `restaurant_teaser:` |
 | About page text | `about.md` |
@@ -26,6 +28,18 @@ business:
 ```
 
 Every "Call to Order" button then becomes "Order Online". If you leave it blank, the buttons dial the phone number.
+
+### Google reviews
+The site shows the Google rating badge and hand-picked 5-star reviews. The rating and review count update every Monday through `.github/workflows/google-reviews.yml`:
+
+1. In Google Cloud, enable **Places API (New)** and create an API key. Restrict the key to that API.
+2. In the GitHub repo, go to **Settings → Secrets and variables → Actions** and add the secret `GOOGLE_PLACES_API_KEY`.
+3. Run the workflow once from the **Actions** tab. It finds the Google place ID, fills in `_data/google.yml` and turns "Leave us a review" into a direct review link.
+
+The key stays secret because it is only used at build time. It never reaches visitors. Usage is a few requests a week, which is well within Google's free tier.
+
+### Photos
+Photos are in `assets/images/food/` as WebP files in two sizes: `name.webp` (1200px) and `name-sm.webp` (640px). To add a dish photo, add both files and set `photo: name` on the item in `_data/menu.yml`.
 
 ### When the restaurant opens
 1. In `_config.yml`, set `business.type: restaurant`. Structured data then switches to `Restaurant`.

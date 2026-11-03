@@ -1,19 +1,25 @@
-# Menu — edit names, descriptions and prices here.
+# Menu: edit names, descriptions and prices here.
 # price: leave blank ("") to hide the price.
-# tags: spicy, vegetarian-option, popular
+# photo: file name (no extension) in assets/images/food/. Leave out for no photo.
+# tags: spicy, popular, vegetarian-option
+# featured: true shows the dish in the "Fan favorites" strip on the home page.
 - section: Noodles
   note: Choice of chicken, pork or beef.
   items:
     - name: Pad Thai
       thai: ผัดไทย
-      description: Stir-fried rice noodles with egg, bean sprouts and green onion, topped with crushed peanuts and lime.
+      description: Stir-fried rice noodles with egg, bean sprouts and green onion, finished with crushed peanuts and fresh lime.
       price: ""
+      photo: pad-thai
       tags: [popular]
+      featured: true
     - name: Pad See Ew
       thai: ผัดซีอิ๊ว
       description: Wide rice noodles wok-charred with sweet soy, egg and Chinese broccoli.
       price: ""
+      photo: pad-see-ew
       tags: [popular]
+      featured: true
     - name: Drunken Noodles
       thai: ผัดขี้เมา
       description: Wide rice noodles with Thai basil, chili, garlic and vegetables.
@@ -28,45 +34,68 @@
 - section: Rice Plates
   note: Choice of chicken, pork or beef. Served with jasmine rice.
   items:
-    - name: Basil Stir-Fry
+    - name: Pad Kra Pao (Basil Stir-Fry)
       thai: ผัดกะเพรา
-      description: Holy basil, chili, garlic, onion and bell pepper. Add a fried egg on top.
+      description: Holy basil, chili, garlic, onion and bell pepper, topped with a crispy fried egg.
       price: ""
+      photo: basil-beef
       tags: [spicy, popular]
+      featured: true
     - name: Thai Fried Rice
       thai: ข้าวผัด
-      description: Jasmine rice wok-fried with egg, onion, tomato and green onion.
+      description: Jasmine rice wok-fried with egg, onion, tomato and green onion. Beef is a customer favorite.
       price: ""
+      photo: fried-rice
       tags: []
+
+- section: Salads
+  items:
+    - name: Papaya Salad (Som Tum)
+      thai: ส้มตำ
+      description: Shredded green papaya pounded with chili, lime, tomato, carrot and green beans. Bright, crunchy and fiery.
+      price: ""
+      photo: papaya-salad
+      tags: [spicy]
+      featured: true
 
 - section: Street Food & Sides
   items:
     - name: Grilled Pork Skewers
       thai: หมูปิ้ง
-      description: Sweet-savory marinated pork, grilled over high heat. Served with sticky rice and fresh cabbage.
+      description: Sweet-savory marinated pork grilled over high heat.
       price: ""
+      photo: pork-skewers
       tags: [popular]
+      featured: true
     - name: Thai Sausage
       thai: ไส้กรอก
-      description: Grilled Thai-style sausage with fresh ginger, chilies and cabbage.
+      description: Grilled Thai-style sausage served with fresh cabbage, ginger and chilies.
       price: ""
+      photo: thai-sausage
       tags: []
+      featured: true
     - name: Egg Rolls
-      description: Crispy fried rolls with sweet chili dipping sauce.
+      description: Golden, crispy and made to share. Served with sweet chili sauce.
       price: ""
-      tags: []
-    - name: Fish Cake & Fried Fish Balls
-      description: Golden fried and served with sweet chili sauce.
+      photo: egg-rolls
+      tags: [popular]
+    - name: Fried Fish Balls
+      description: Fried fish balls on skewers with sweet chili dipping sauce.
       price: ""
+      photo: fish-balls
       tags: []
 
 - section: Drinks
   items:
     - name: Thai Iced Tea
+      thai: ชาเย็น
       description: Black tea with sweetened cream over ice.
       price: ""
-      tags: []
+      photo: thai-tea
+      tags: [popular]
     - name: Thai Green Tea
-      description: Creamy Thai-style green tea over ice.
+      thai: ชาเขียว
+      description: Creamy Thai-style green tea over ice, with boba.
       price: ""
+      photo: green-tea
       tags: []

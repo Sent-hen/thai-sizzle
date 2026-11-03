@@ -1,0 +1,8 @@
+# Google Business Profile summary.
+# rating / review_count are refreshed weekly by .github/workflows/google-reviews.yml
+# when the GOOGLE_PLACES_API_KEY secret is set. You can also edit them by hand.
+rating: 4.6
+review_count: 28
+place_id: ""        # filled in automatically by the workflow (ChIJ...)
+maps_url: https://www.google.com/maps?cid=10377647119203596767
+updated: 2026-11-03

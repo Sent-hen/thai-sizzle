@@ -1,0 +1,13 @@
+# Photo gallery on the home page. photo = file name in assets/images/food/ (no extension).
+- { photo: pad-thai, alt: Pad Thai with fresh lime }
+- { photo: papaya-salad, alt: Papaya salad with tomato and carrot }
+- { photo: pork-skewers, alt: Grilled pork skewers }
+- { photo: basil-egg, alt: Basil stir-fry with a fried egg }
+- { photo: fish-balls, alt: Fried fish ball skewers }
+- { photo: pad-see-ew, alt: Pad See Ew noodles }
+- { photo: thai-sausage, alt: Grilled Thai sausage with cabbage }
+- { photo: thai-tea, alt: Thai iced tea }
+- { photo: basil-pork, alt: Minced pork basil stir-fry with rice }
+- { photo: egg-rolls, alt: Egg rolls with noodles and lime }
+- { photo: green-tea, alt: Thai green tea with boba }
+- { photo: fried-rice, alt: Thai fried rice }

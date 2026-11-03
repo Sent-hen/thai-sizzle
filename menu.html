@@ -1,38 +1,51 @@
 ---
 title: Menu
-description: Thai Sizzle menu with pad thai, pad see ew, drunken noodles, basil stir-fry, noodle soup, grilled pork skewers, Thai iced tea and more.
+description: Thai Sizzle menu. Pad thai, pad see ew, pad kra pao, papaya salad, Thai fried rice, grilled pork skewers, Thai sausage, egg rolls, Thai iced tea and more in Mabank, TX.
 permalink: /menu/
 ---
-<section class="page-head">
+<section class="page-head page-head-photo">
+  {% include photo.html name="pad-see-ew" alt="" class="hero-bg" sizes="100vw" eager=true %}
   <div class="container">
-    <h1>Menu</h1>
+    <h1>Our Menu</h1>
     <p class="lead">Everything is cooked to order. Tell us how spicy you like it.</p>
     <div class="cta-row">{% include order-button.html %}</div>
   </div>
 </section>
 
+<nav class="menu-tabs" aria-label="Menu sections">
+  <div class="container">
+    {%- for section in site.data.menu %}
+    <a href="#{{ section.section | slugify }}">{{ section.section }}</a>
+    {%- endfor %}
+  </div>
+</nav>
+
 <div class="container menu">
   {%- for section in site.data.menu %}
-  <section class="menu-section" aria-labelledby="sec-{{ forloop.index }}">
-    <h2 id="sec-{{ forloop.index }}">{{ section.section }}</h2>
+  <section class="menu-section" id="{{ section.section | slugify }}">
+    <h2>{{ section.section }}</h2>
     {%- if section.note %}<p class="muted">{{ section.note }}</p>{% endif %}
     <ul class="menu-list">
       {%- for item in section.items %}
-      <li class="menu-item">
-        <div class="menu-item-head">
-          <h3>{{ item.name }}{% if item.thai %} <span class="thai" lang="th">{{ item.thai }}</span>{% endif %}</h3>
-          {%- if item.price and item.price != "" %}<span class="price">${{ item.price }}</span>{% endif %}
+      <li class="menu-item{% if item.photo %} has-photo{% endif %}">
+        {%- if item.photo %}<div class="menu-thumb">{% include photo.html name=item.photo alt=item.name sizes="120px" %}</div>{% endif %}
+        <div class="menu-text">
+          <div class="menu-item-head">
+            <h3>{{ item.name }}</h3>
+            {%- if item.price and item.price != "" %}<span class="price">${{ item.price }}</span>{% endif %}
+          </div>
+          {%- if item.thai %}<p class="thai" lang="th">{{ item.thai }}</p>{% endif %}
+          <p>{{ item.description }}</p>
+          {%- if item.tags and item.tags.size > 0 %}
+          <p class="tags">
+            {%- for t in item.tags %}<span class="tag tag-{{ t }}">{% if t == "spicy" %}🌶️ Spicy{% elsif t == "popular" %}★ Popular{% else %}{{ t | replace: "-", " " }}{% endif %}</span>{% endfor -%}
+          </p>
+          {%- endif %}
         </div>
-        <p>{{ item.description }}</p>
-        {%- if item.tags and item.tags.size > 0 %}
-        <p class="tags">
-          {%- for t in item.tags %}<span class="tag tag-{{ t }}">{% if t == "spicy" %}🌶️ Spicy{% elsif t == "popular" %}★ Popular{% else %}{{ t | replace: "-", " " }}{% endif %}</span>{% endfor -%}
-        </p>
-        {%- endif %}
       </li>
       {%- endfor %}
     </ul>
   </section>
   {%- endfor %}
-  <p class="small muted">Menu and prices may change. Please let us know about any food allergies when you order.</p>
+  <p class="small muted">Menu and prices may change. Please tell us about any food allergies when you order.</p>
 </div>

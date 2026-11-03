@@ -1,0 +1,10 @@
+{%- comment -%}
+  Responsive food photo. Params: name (file stem), alt, class, sizes, eager
+{%- endcomment -%}
+{%- assign base = '/assets/images/food/' | append: include.name -%}
+<img class="{{ include.class }}"
+  src="{{ base | append: '-sm.webp' | relative_url }}"
+  srcset="{{ base | append: '-sm.webp' | relative_url }} 640w, {{ base | append: '.webp' | relative_url }} 1200w"
+  sizes="{{ include.sizes | default: '(min-width: 900px) 33vw, 100vw' }}"
+  alt="{{ include.alt | escape }}"
+  {% if include.eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">

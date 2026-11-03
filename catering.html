@@ -1,0 +1,38 @@
+---
+title: Catering
+description: Thai food catering in Mabank and Cedar Creek Lake. Party trays of pad thai, fried rice, egg rolls and more from Thai Sizzle.
+permalink: /catering/
+---
+{%- assign b = site.business -%}
+<section class="page-head page-head-photo">
+  {% include photo.html name="catering-fried-rice" alt="" class="hero-bg" sizes="100vw" eager=true %}
+  <div class="container">
+    <h1>Catering</h1>
+    <p class="lead">Feed the whole crew with party trays of Thai favorites.</p>
+    <div class="cta-row"><a class="btn btn-primary" href="tel:{{ b.phone_raw }}">Call {{ b.phone }}</a></div>
+  </div>
+</section>
+
+<div class="container split section">
+  <div class="prose">
+    <h2>Perfect for</h2>
+    <ul class="check-list">
+      <li>Birthday parties and family get-togethers</li>
+      <li>Office lunches and team meetings</li>
+      <li>Church and community events</li>
+      <li>Lake weekends around Cedar Creek Lake</li>
+    </ul>
+    <h2>Popular trays</h2>
+    <ul class="check-list">
+      <li>Pad Thai (chicken, pork or beef)</li>
+      <li>Thai Fried Rice</li>
+      <li>Egg Rolls</li>
+      <li>Grilled Pork Skewers</li>
+    </ul>
+    <p>Call us at <a href="tel:{{ b.phone_raw }}">{{ b.phone }}</a> or message us on <a href="{{ b.facebook }}" rel="noopener">Facebook</a> with your date, headcount and favorite dishes. For big events, the earlier you let us know, the better.</p>
+  </div>
+  <div class="catering-photos">
+    {% include photo.html name="catering-egg-rolls" alt="A full catering tray of egg rolls" sizes="(min-width: 900px) 25vw, 50vw" %}
+    {% include photo.html name="catering-fried-rice" alt="Catering trays of fried rice and pad thai" sizes="(min-width: 900px) 25vw, 50vw" %}
+  </div>
+</div>

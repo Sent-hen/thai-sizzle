@@ -1,5 +1,26 @@
-# Short customer quotes shown on the home page (from Facebook recommendations).
+# Hand-picked 5-star public reviews (Google and Facebook), shown on the home page.
+# Keep quotes word-for-word. Shorten only with "…".
+- quote: This Sizzle absolutely lives up to its name — it sizzles! I had the Pad Thai and a Thai tea, and both were fantastic. The Pad Thai was perfectly balanced — flavorful, fresh, and cooked just right.
+  name: James D.
+  source: Google
+  rating: 5
+- quote: Phoned on my order ready in 15 minutes. Huge portion, great flavor, delicious. Pad Kra Pow, perfection with fried rice.
+  name: Mary P.
+  source: Google
+  rating: 5
+- quote: The food is so good. Was not expecting it to be better than restaurants. I ordered the Chicken Pad Thai and it was outstanding. I will definitely be back again.
+  name: Lindy
+  source: Google
+  rating: 5
+- quote: The egg rolls are the bomb! So are the Thai sausages!! My favorite has to be the Pad Thai with beef… I have made this my go-to for dinner.
+  name: OverSizeDriver (Local Guide)
+  source: Google
+  rating: 5
+- quote: Tried for the first time last week with the Pad Thai and egg rolls. Tried the Pad See Ew this week. Both were amazing and delicious. Service with a smile is always a plus. Will definitely be back!
+  name: Cheryl M.
+  source: Google
+  rating: 5
 - quote: Authentic Thai food, highly recommended. I don't have to drive an hour for some good Thai food.
   name: Gabriel A.
-- quote: Love the food & the people. THE BEST!
-  name: Fabian C.
+  source: Facebook
+  rating: 5

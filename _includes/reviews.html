@@ -1,0 +1,28 @@
+{%- assign g = site.data.google -%}
+<section class="section reviews" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="reviews-head">
+      <div>
+        <p class="eyebrow">Reviews</p>
+        <h2 id="reviews-title">Mabank's favorite Thai food truck</h2>
+      </div>
+      {% include google-badge.html class="g-badge-lg" %}
+    </div>
+    <div class="review-grid">
+      {%- for r in site.data.reviews limit: include.limit %}
+      <figure class="review-card">
+        <div class="review-top">
+          {% include stars.html rating=r.rating %}
+          <span class="review-source">{{ r.source }}</span>
+        </div>
+        <blockquote>“{{ r.quote }}”</blockquote>
+        <figcaption>{{ r.name }}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+    <div class="cta-row center">
+      <a class="btn btn-outline" href="{{ g.maps_url }}" rel="noopener">Read all reviews on Google</a>
+      <a class="btn btn-primary" href="{% if g.place_id != '' %}https://search.google.com/local/writereview?placeid={{ g.place_id }}{% else %}{{ g.maps_url }}{% endif %}" rel="noopener">Leave us a review</a>
+    </div>
+  </div>
+</section>

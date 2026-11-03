@@ -19,7 +19,7 @@ permalink: /find-us/
       <strong>{{ b.location_name }}</strong><br>
       {{ addr }}
     </address>
-    <p><a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query={{ addr | url_encode }}" rel="noopener">Open in Google Maps</a></p>
+    <p><a class="btn btn-primary" href="{{ site.data.google.maps_url }}" rel="noopener">Open in Google Maps</a></p>
     <h2>Order ahead</h2>
     <p>Skip the wait. Call <a href="tel:{{ b.phone_raw }}">{{ b.phone }}</a> and your food will be ready when you arrive.</p>
     {% include order-button.html class="btn-outline" %}
@@ -29,7 +29,7 @@ permalink: /find-us/
     {% include hours.html %}
     <div class="map">
       <iframe title="Map to {{ b.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q={{ addr | url_encode }}&z=15&output=embed"></iframe>
+        src="https://maps.google.com/maps?q={{ b.name | url_encode }}%20{{ addr | url_encode }}&ll={{ b.lat }},{{ b.lng }}&z=16&output=embed"></iframe>
     </div>
   </div>
 </div>
