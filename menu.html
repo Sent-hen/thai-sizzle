@@ -30,6 +30,7 @@ permalink: /menu/
           </div>
           {%- if item.thai %}<p class="thai" lang="th">{{ item.thai }}</p>{% endif %}
           <p>{{ item.description }}</p>
+          {%- if item.note %}<p class="item-note">{{ item.note }}</p>{% endif %}
           {%- if item.tags and item.tags.size > 0 %}
           <p class="tags">
             {%- for t in item.tags %}<span class="tag tag-{{ t }}">{% if t == "spicy" %}🌶️ Spicy{% elsif t == "popular" %}★ Popular{% else %}{{ t | replace: "-", " " }}{% endif %}</span>{% endfor -%}

@@ -224,6 +224,7 @@ address { font-style: normal; }
 .tags { display: flex; gap: .4rem; flex-wrap: wrap; }
 .tag { font-size: .75rem; font-weight: 700; padding: .15rem .6rem; border-radius: 999px; background: #fff; color: $green; text-transform: uppercase; letter-spacing: .05em; }
 .tag-spicy { background: #fde3e1; color: $red-dark; }
+.menu-item .item-note { color: $red; font-weight: 700; font-size: .95rem; }
 @media (max-width: 420px) { .menu-list { grid-template-columns: 1fr; } .menu-thumb { width: 84px; height: 84px; } }
 
 // ---------- Catering / Find us / About ----------
