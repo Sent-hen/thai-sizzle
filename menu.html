@@ -3,14 +3,8 @@ title: Menu
 description: Thai Sizzle menu. Pad thai, pad see ew, pad kra pao, papaya salad, Thai fried rice, grilled pork skewers, Thai sausage, egg rolls, Thai iced tea and more in Mabank, TX.
 permalink: /menu/
 ---
-<section class="page-head page-head-photo">
-  {% include photo.html name="pad-see-ew" alt="" class="hero-bg" sizes="100vw" eager=true %}
-  <div class="container">
-    <h1>Our Menu</h1>
-    <p class="lead">Everything is cooked to order. Tell us how spicy you like it.</p>
-    <div class="cta-row">{% include order-button.html %}</div>
-  </div>
-</section>
+{% include page-banner.html kicker="Cooked to order" title="Our Menu" sub="Tell us how spicy you like it" photo_left="pad-see-ew" photo_right="basil-beef" %}
+<div class="container center under-banner">{% include order-button.html %}</div>
 
 <nav class="menu-tabs" aria-label="Menu sections">
   <div class="container">

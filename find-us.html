@@ -5,12 +5,7 @@ permalink: /find-us/
 ---
 {%- assign b = site.business -%}
 {%- capture addr -%}{{ b.street }}, {{ b.city }}, {{ b.region }} {{ b.postal }}{%- endcapture -%}
-<section class="page-head">
-  <div class="container">
-    <h1>Find Us</h1>
-    <p class="lead">You'll find our yellow truck at the {{ b.location_name }}.</p>
-  </div>
-</section>
+{% include page-banner.html kicker="Mabank Food Truck Park" title="Find Us" sub="Look for the yellow truck" photo_left="pork-skewers" photo_right="thai-tea" %}
 
 <div class="container split section">
   <div>

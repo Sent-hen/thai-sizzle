@@ -1,25 +1,24 @@
 {%- assign b = site.business -%}
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
-      <p class="footer-brand">Thai <em>Sizzle</em></p>
-      <p>{{ site.tagline }}</p>
-    </div>
-    <div>
+    <div class="footer-col">
       <h2 class="footer-heading">Visit</h2>
       <address>
         {{ b.location_name }}<br>
         {{ b.street }}<br>
         {{ b.city }}, {{ b.region }} {{ b.postal }}
       </address>
+      <p class="footer-hours">{{ site.data.hours.summary }}</p>
     </div>
-    <div>
-      <h2 class="footer-heading">Contact</h2>
+    <div class="footer-logo">
+      <a href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">{% include logo.html id="ftr" %}</a>
+    </div>
+    <div class="footer-col footer-right">
+      <h2 class="footer-heading">Say hi</h2>
       <p><a href="tel:{{ b.phone_raw }}">{{ b.phone }}</a></p>
       <p><a href="{{ b.facebook }}" rel="noopener">Facebook</a></p>
+      <p>{% include google-badge.html %}</p>
     </div>
   </div>
-  <div class="container footer-bottom">
-    <p>&copy; {{ site.time | date: "%Y" }} {{ b.name }}. All rights reserved.</p>
-  </div>
+  <p class="footer-bottom container">&copy; {{ site.time | date: "%Y" }} {{ b.name }} · Mabank, Texas</p>
 </footer>

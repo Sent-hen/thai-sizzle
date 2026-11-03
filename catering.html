@@ -4,14 +4,8 @@ description: Thai food catering in Mabank and Cedar Creek Lake. Party trays of p
 permalink: /catering/
 ---
 {%- assign b = site.business -%}
-<section class="page-head page-head-photo">
-  {% include photo.html name="catering-fried-rice" alt="" class="hero-bg" sizes="100vw" eager=true %}
-  <div class="container">
-    <h1>Catering</h1>
-    <p class="lead">Feed the whole crew with party trays of Thai favorites.</p>
-    <div class="cta-row"><a class="btn btn-primary" href="tel:{{ b.phone_raw }}">Call {{ b.phone }}</a></div>
-  </div>
-</section>
+{% include page-banner.html kicker="Feed the whole crew" title="Catering" sub="Party trays of Thai favorites" photo_left="catering-egg-rolls" photo_right="catering-fried-rice" %}
+<div class="container center under-banner"><a class="btn btn-primary" href="tel:{{ b.phone_raw }}">Call {{ b.phone }}</a></div>
 
 <div class="container split section">
   <div class="prose">

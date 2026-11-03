@@ -1,25 +1,17 @@
 {%- assign b = site.business -%}
-<div class="topbar">
-  <div class="container topbar-inner">
-    <a href="tel:{{ b.phone_raw }}" class="topbar-phone">📞 {{ b.phone }}</a>
-    <span class="topbar-hours">{{ site.data.hours.summary }}</span>
-    {% include google-badge.html class="g-badge-sm" %}
-  </div>
-</div>
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-inner">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
-      <span class="brand-name">Thai <em>Sizzle</em></span>
-      <span class="brand-sub">Thai Street Food · Mabank</span>
+      {% include logo.html id="hdr" %}
     </a>
     <nav aria-label="Main">
       <ul class="nav-links">
-        {%- assign nav = "Menu:/menu/,Catering:/catering/,Find Us:/find-us/,About:/about/" | split: "," -%}
+        {%- assign nav = "Menu:/menu/,Gallery:/#gallery,Catering:/catering/,Find Us:/find-us/,About:/about/" | split: "," -%}
         {%- for item in nav -%}
           {%- assign parts = item | split: ":" -%}
           <li><a href="{{ parts[1] | relative_url }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
         {%- endfor -%}
-        <li>{% include order-button.html class="btn-primary btn-sm" %}</li>
+        <li class="nav-cta">{% include order-button.html class="btn-primary btn-sm" %}</li>
       </ul>
     </nav>
   </div>

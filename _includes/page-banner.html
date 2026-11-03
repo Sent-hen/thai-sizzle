@@ -1,0 +1,11 @@
+{%- comment -%} Green banner page header with wavy edge. Params: kicker, title, sub, photo_left, photo_right {%- endcomment -%}
+<section class="banner page-banner">
+  {%- if include.photo_left %}{% include plate.html name=include.photo_left id="pl" class="plate-left plate-sm" eager=true %}{% endif %}
+  <div class="banner-inner">
+    {%- if include.kicker %}<p class="banner-kicker">{{ include.kicker }}</p>{% endif %}
+    <h1 class="banner-h1">{{ include.title }}</h1>
+    {%- if include.sub %}<p class="banner-sub">{{ include.sub }}</p>{% endif %}
+  </div>
+  {%- if include.photo_right %}{% include plate.html name=include.photo_right id="pr" class="plate-right plate-sm" eager=true %}{% endif %}
+  {% include wave.html %}
+</section>

@@ -3,103 +3,96 @@ title: Authentic Thai Food Truck in Mabank, TX
 description: Thai Sizzle serves authentic Thai street food at the Mabank Food Truck Park. Pad thai, pad kra pao, papaya salad, pork skewers and Thai tea. Rated 4.6 on Google. Call ahead to order.
 ---
 {%- assign b = site.business -%}
-<section class="hero">
-  {% include photo.html name="combo" alt="" class="hero-bg" sizes="100vw" eager=true %}
-  <div class="container hero-inner">
-    <p class="eyebrow eyebrow-light">{{ b.location_name }} · {{ b.city }}, {{ b.region }}</p>
-    <h1>Authentic Thai street food,<br>wok-fired to order.</h1>
-    <p class="lead">Pad thai, basil stir-fry, papaya salad, grilled pork skewers and Thai iced tea. No hour-long drive required.</p>
-    <div class="cta-row">
-      {% include order-button.html %}
-      <a class="btn btn-ghost" href="{{ '/menu/' | relative_url }}">View the Menu</a>
+
+<section class="banner hero">
+  {% include plate.html name="pad-thai" caption="Pad Thai · stir-fried rice noodles" id="h1" class="plate-left" eager=true %}
+  <div class="banner-inner">
+    <p class="banner-kicker">Mabank's own</p>
+    <h1 class="banner-h1">Thai Street<br>Food</h1>
+    <p class="banner-sub">Wok-fired to order · Call ahead, skip the wait</p>
+    <div class="cta-row center">
+      {% include order-button.html class="btn-primary" %}
+      <a class="btn btn-cream" href="{{ '/menu/' | relative_url }}">See the menu</a>
     </div>
-    {% include google-badge.html class="g-badge-hero" %}
+  </div>
+  {% include plate.html name="papaya-salad" caption="Som Tum · green papaya salad" id="h2" class="plate-right" eager=true %}
+  {% include wave.html %}
+</section>
+
+<section class="story">
+  <div class="container story-grid">
+    <div class="story-text">
+      <div class="bubble">
+        <p>Thai Sizzle brings real Thai street food to Mabank. Every plate is cooked to order, so noodles come straight from a hot wok and pork skewers straight off the grill, with sauces made the way we grew up eating them.</p>
+        <p class="bubble-sign">The Thai Sizzle family</p>
+      </div>
+      <div class="story-cta">
+        <a class="btn btn-primary btn-wide" href="{{ '/find-us/' | relative_url }}">{{ b.location_name }}</a>
+        {% include google-badge.html class="g-badge-pill" %}
+      </div>
+    </div>
+    <div class="story-photo">
+      {% include photo.html name="truck-cover" alt="The yellow Thai Sizzle food truck with 'Call to order 469-722-2700' painted on the side" sizes="(min-width: 900px) 50vw, 100vw" %}
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="favorites">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Featured</p>
-        <h2>Fan favorites</h2>
-      </div>
-      <a class="link-arrow" href="{{ '/menu/' | relative_url }}">Full menu →</a>
-    </div>
-    <div class="dish-grid">
+    <h2 class="banner-title">Fan favorites</h2>
+    <div class="plate-row">
+      {%- assign n = 0 -%}
       {%- for section in site.data.menu -%}
         {%- for item in section.items -%}
           {%- if item.featured and item.photo -%}
-          <article class="dish-card">
-            <div class="dish-img">{% include photo.html name=item.photo alt=item.name sizes="(min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw" %}</div>
-            <div class="dish-body">
-              <h3>{{ item.name }}</h3>
-              {%- if item.thai %}<p class="thai" lang="th">{{ item.thai }}</p>{% endif %}
-              <p>{{ item.description }}</p>
-            </div>
+          {%- assign n = n | plus: 1 -%}
+          <article class="fav">
+            {% include plate.html name=item.photo id=n class="plate-xs" %}
+            <h3>{{ item.name }}</h3>
+            {%- if item.thai %}<p class="thai" lang="th">{{ item.thai }}</p>{% endif %}
+            <p>{{ item.description }}</p>
           </article>
           {%- endif -%}
         {%- endfor -%}
       {%- endfor -%}
     </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <p class="eyebrow center">Why Mabank keeps coming back</p>
-    <h2 class="center">Made fresh, made fast, made with love</h2>
-    <div class="feature-grid">
-      <div class="feature"><span class="feature-icon" aria-hidden="true">🔥</span><h3>Cooked to order</h3><p>Every plate hits a screaming-hot wok right after you order. Nothing sits under a heat lamp.</p></div>
-      <div class="feature"><span class="feature-icon" aria-hidden="true">📞</span><h3>Call ahead, skip the wait</h3><p>Phone in your order and it's usually ready in about 15 minutes.</p></div>
-      <div class="feature"><span class="feature-icon" aria-hidden="true">🍜</span><h3>Generous portions</h3><p>Real Thai flavors and plates big enough for leftovers, at food-truck prices.</p></div>
-      <div class="feature"><span class="feature-icon" aria-hidden="true">🎉</span><h3>Catering trays</h3><p>Party pans of pad thai, fried rice and egg rolls for parties, offices and church events.</p></div>
-    </div>
+    <p class="center"><a class="btn btn-primary btn-wide" href="{{ '/menu/' | relative_url }}">Full menu</a></p>
   </div>
 </section>
 
 {% include reviews.html limit=6 %}
 
-<section class="section gallery-section">
-  <div class="container">
-    <p class="eyebrow">Flavors in focus</p>
-    <h2>Straight from the truck</h2>
-    <div class="gallery">
-      {%- for g in site.data.gallery %}
-      <figure class="gallery-item">{% include photo.html name=g.photo alt=g.alt sizes="(min-width: 900px) 25vw, 50vw" %}</figure>
-      {%- endfor %}
-    </div>
-    <p class="center"><a class="btn btn-outline" href="{{ b.facebook }}" rel="noopener">See more on Facebook</a></p>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container split">
+<section class="banner visit">
+  {% include wave.html class="wave-top" %}
+  <div class="container visit-grid">
     <div>
-      <p class="eyebrow">Visit us</p>
-      <h2>Find the yellow truck</h2>
+      <h2 class="banner-title banner-title-light">Find the yellow truck</h2>
       <address class="big-address">
         <strong>{{ b.location_name }}</strong><br>
         {{ b.street }}, {{ b.city }}, {{ b.region }} {{ b.postal }}
       </address>
       <div class="cta-row">
-        <a class="btn btn-primary" href="{{ site.data.google.maps_url }}" rel="noopener">Get directions</a>
-        <a class="btn btn-outline" href="tel:{{ b.phone_raw }}">{{ b.phone }}</a>
+        <a class="btn btn-primary" href="{{ site.data.google.maps_url }}" rel="noopener">Directions</a>
+        <a class="btn btn-cream" href="tel:{{ b.phone_raw }}">{{ b.phone }}</a>
       </div>
-      <h3>Hours</h3>
+    </div>
+    <div>
+      <h3 class="hours-title">Hours</h3>
       {% include hours.html %}
     </div>
-    <div class="visit-photo">{% include photo.html name="truck-cover" alt="The yellow Thai Sizzle food truck with 'Call to order 469-722-2700' painted on the side" sizes="(min-width: 900px) 50vw, 100vw" %}</div>
   </div>
+  {% include wave.html %}
 </section>
 
 {%- if site.restaurant_teaser.enabled %}
-<section class="section teaser">
+<section class="teaser">
   <div class="container narrow center">
-    <p class="eyebrow eyebrow-light">Coming soon</p>
-    <h2>{{ site.restaurant_teaser.heading }}</h2>
+    <p class="banner-kicker">Coming soon</p>
+    <h2 class="banner-title">{{ site.restaurant_teaser.heading }}</h2>
     <p>{{ site.restaurant_teaser.text }}</p>
-    <a class="btn btn-light" href="{{ b.facebook }}" rel="noopener">Follow on Facebook</a>
+    <a class="btn btn-primary" href="{{ b.facebook }}" rel="noopener">Follow on Facebook</a>
   </div>
 </section>
 {%- endif %}
+
+{% include gallery.html %}

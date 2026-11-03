@@ -1,0 +1,13 @@
+{%- comment -%}
+  Circular "plate" photo with a curved caption, Urbanbelly-style.
+  Params: name (photo), caption, id (unique), class
+{%- endcomment -%}
+<figure class="plate {{ include.class }}">
+  <div class="plate-img">{% include photo.html name=include.name alt=include.caption sizes="(min-width: 900px) 30vw, 60vw" eager=include.eager %}</div>
+  {%- if include.caption %}
+  <svg class="plate-caption" viewBox="0 0 300 300" aria-hidden="true">
+    <defs><path id="plate-arc-{{ include.id }}" d="M 18,150 A 132,132 0 0 0 282,150"/></defs>
+    <text><textPath href="#plate-arc-{{ include.id }}" startOffset="50%" text-anchor="middle">{{ include.caption | upcase }}</textPath></text>
+  </svg>
+  {%- endif %}
+</figure>

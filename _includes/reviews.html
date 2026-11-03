@@ -1,28 +1,22 @@
 {%- assign g = site.data.google -%}
-<section class="section reviews" aria-labelledby="reviews-title">
+<section class="reviews" aria-labelledby="reviews-title">
   <div class="container">
-    <div class="reviews-head">
-      <div>
-        <p class="eyebrow">Reviews</p>
-        <h2 id="reviews-title">Mabank's favorite Thai food truck</h2>
-      </div>
-      {% include google-badge.html class="g-badge-lg" %}
-    </div>
+    <h2 id="reviews-title" class="banner-title">What Mabank is saying</h2>
+    <p class="center">{% include google-badge.html class="g-badge-pill" %}</p>
     <div class="review-grid">
       {%- for r in site.data.reviews limit: include.limit %}
       <figure class="review-card">
-        <div class="review-top">
+        <div class="bubble bubble-sm">
           {% include stars.html rating=r.rating %}
-          <span class="review-source">{{ r.source }}</span>
+          <blockquote>“{{ r.quote }}”</blockquote>
         </div>
-        <blockquote>“{{ r.quote }}”</blockquote>
-        <figcaption>{{ r.name }}</figcaption>
+        <figcaption>{{ r.name }} <span>· {{ r.source }}</span></figcaption>
       </figure>
       {%- endfor %}
     </div>
     <div class="cta-row center">
-      <a class="btn btn-outline" href="{{ g.maps_url }}" rel="noopener">Read all reviews on Google</a>
-      <a class="btn btn-primary" href="{% if g.place_id != '' %}https://search.google.com/local/writereview?placeid={{ g.place_id }}{% else %}{{ g.maps_url }}{% endif %}" rel="noopener">Leave us a review</a>
+      <a class="btn btn-outline" href="{{ g.maps_url }}" rel="noopener">All Google reviews</a>
+      <a class="btn btn-primary" href="{% if g.place_id != '' %}https://search.google.com/local/writereview?placeid={{ g.place_id }}{% else %}{{ g.maps_url }}{% endif %}" rel="noopener">Leave a review</a>
     </div>
   </div>
 </section>
