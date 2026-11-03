@@ -1,7 +1,6 @@
 # Food photo gallery (bottom of the home page). Order = display order.
 # photo = file name in assets/images/food/ (no extension). 6 per row on desktop.
 - { photo: pad-thai, alt: Pad Thai with fresh lime }
-- { photo: papaya-salad, alt: Papaya salad with tomato and carrot }
 - { photo: pork-skewers, alt: Grilled pork skewers }
 - { photo: basil-egg, alt: Basil stir-fry with a fried egg }
 - { photo: fish-balls, alt: Fried fish ball skewers }
@@ -14,6 +13,7 @@
 - { photo: noodle-soup, alt: Noodle soup with bean sprouts and broth on the side }
 - { photo: pad-thai-2, alt: Pad Thai with lime }
 - { photo: pork-skewers-2, alt: Pork skewers on the grill paper }
+- { photo: basil-pork, alt: Minced pork basil stir-fry with egg }
 - { photo: egg-rolls, alt: Egg rolls with noodles and lime }
 - { photo: boba, alt: Spoonful of boba pearls }
 - { photo: fried-rice-2, alt: Thai fried rice }

@@ -17,7 +17,7 @@
     - name: Pad See Ew
       thai: ผัดซีอิ๊ว
       description: Wide rice noodles wok-charred with sweet soy, egg and broccoli.
-      price: ""
+      price: "13.50"
       photo: pad-see-ew
       tags: [popular]
       featured: true
@@ -45,17 +45,6 @@
       photo: fried-rice
       tags: []
 
-- section: Salad
-  items:
-    - name: Papaya Salad (Som Tum)
-      thai: ส้มตำ
-      description: Green papaya, long beans, roasted peanuts, palm sugar, fish sauce, lime juice, Thai chilies and tamarind paste.
-      price: ""
-      photo: papaya-salad
-      note: Thursday–Saturday only
-      tags: [spicy]
-      featured: true
-
 - section: Street Food
   items:
     - name: 4 BBQ Pork Skewers
@@ -77,6 +66,7 @@
       price: "7.00"
       photo: egg-rolls
       tags: [popular]
+      featured: true
     - name: 3 Fish Cake Skewers
       description: Fish, cilantro, green onion and cornstarch, served with sauce.
       price: "9.00"
@@ -88,7 +78,7 @@
     - name: Green / Thai Tea
       thai: ชาเย็น
       description: Creamy Thai iced tea or Thai green tea. Add boba for $2.
-      price: ""
+      price: "5.00"
       photo: thai-tea
       tags: [popular]
     - name: Canned Drinks

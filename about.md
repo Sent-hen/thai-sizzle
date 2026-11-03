@@ -3,7 +3,7 @@ title: About
 description: Thai Sizzle is a family-run Thai food truck in Mabank, Texas, bringing authentic Thai street food to East Texas.
 permalink: /about/
 ---
-{% include page-banner.html kicker="Our story" title="About" sub="Thai street food, made with love in Mabank" photo_left="fish-balls" photo_right="papaya-salad" %}
+{% include page-banner.html kicker="Our story" title="About" sub="Thai street food, made with love in Mabank" photo_left="fish-balls" photo_right="pork-skewers-2" %}
 
 <div class="container narrow prose section" markdown="1">
 
