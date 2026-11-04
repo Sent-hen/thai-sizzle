@@ -9,6 +9,7 @@ description: >-
   serving pad thai, pad see ew, drunken noodles, noodle soup, grilled pork
   skewers and more. Call ahead or order online.
 lang: en-US
+logo: /assets/images/logo-512.png
 timezone: America/Chicago
 
 # Set this when the custom domain is live (e.g. https://thaisizzle.com)

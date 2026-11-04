@@ -1,0 +1,68 @@
+{%- comment -%}
+  Home hero: the food gallery (_data/gallery.yml) cross-fades behind the headline.
+  Works without JS (shows the first photo). Respects prefers-reduced-motion and has a pause button.
+{%- endcomment -%}
+{%- assign b = site.business -%}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="slides" aria-hidden="true">
+    {%- for g in site.data.gallery %}
+    {%- assign base = '/assets/images/food/' | append: g.photo -%}
+    <img class="slide{% if forloop.first %} is-active{% endif %}"
+      src="{{ base | append: '-sm.webp' | relative_url }}"
+      srcset="{{ base | append: '-sm.webp' | relative_url }} 640w, {{ base | append: '.webp' | relative_url }} 1200w"
+      sizes="100vw" alt="" data-caption="{{ g.alt | escape }}"
+      {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy" fetchpriority="low"{% endif %} decoding="async">
+    {%- endfor %}
+  </div>
+  <div class="hero-shade"></div>
+
+  <div class="container hero-content">
+    <p class="hero-kicker">{{ b.location_name }} · {{ b.city }}, {{ b.region }}</p>
+    <h1 id="hero-title" class="hero-title">Thai Street Food</h1>
+    <p class="hero-sub">Wok-fired to order · Call ahead, skip the wait</p>
+    <div class="cta-row">
+      {% include order-button.html class="btn-primary" %}
+      <a class="btn btn-gold" href="{{ '/menu/' | relative_url }}">See the menu</a>
+    </div>
+    {% include google-badge.html class="g-badge-pill" %}
+  </div>
+
+  <div class="hero-controls container">
+    <p class="slide-caption" aria-live="polite"><span>Now serving</span> <strong>{{ site.data.gallery[0].alt }}</strong></p>
+    <div class="slide-dots" role="group" aria-label="Choose photo">
+      {%- for g in site.data.gallery %}
+      <button type="button" class="dot{% if forloop.first %} is-active{% endif %}" aria-label="Show photo {{ forloop.index }}: {{ g.alt | escape }}"></button>
+      {%- endfor %}
+    </div>
+    <button type="button" class="slide-toggle" aria-pressed="false" aria-label="Pause slideshow">❚❚</button>
+  </div>
+  {% include wave.html %}
+</section>
+<script>
+(() => {
+  const hero = document.querySelector('.hero');
+  const slides = [...hero.querySelectorAll('.slide')];
+  const dots = [...hero.querySelectorAll('.dot')];
+  const cap = hero.querySelector('.slide-caption strong');
+  const toggle = hero.querySelector('.slide-toggle');
+  if (slides.length < 2) return;
+  let i = 0, timer = null;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show = n => {
+    slides[i].classList.remove('is-active'); dots[i].classList.remove('is-active');
+    i = (n + slides.length) % slides.length;
+    const img = slides[i]; img.loading = 'eager';
+    slides[(i + 1) % slides.length].loading = 'eager';   // warm up the next one
+    img.classList.add('is-active'); dots[i].classList.add('is-active');
+    cap.textContent = img.dataset.caption;
+  };
+  const play = () => { stop(); timer = setInterval(() => show(i + 1), 5000); toggle.setAttribute('aria-pressed', 'false'); toggle.setAttribute('aria-label', 'Pause slideshow'); toggle.textContent = '❚❚'; };
+  const stop = () => { clearInterval(timer); timer = null; };
+  const pause = () => { stop(); toggle.setAttribute('aria-pressed', 'true'); toggle.setAttribute('aria-label', 'Play slideshow'); toggle.textContent = '▶'; };
+  dots.forEach((d, n) => d.addEventListener('click', () => { show(n); if (timer) play(); }));
+  toggle.addEventListener('click', () => (timer ? pause() : play()));
+  document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (toggle.getAttribute('aria-pressed') === 'false') play(); });
+  slides[1].loading = 'eager';
+  reduce ? pause() : play();
+})();
+</script>

@@ -4,20 +4,7 @@ description: Thai Sizzle serves authentic Thai street food at the Mabank Food Tr
 ---
 {%- assign b = site.business -%}
 
-<section class="banner hero">
-  {% include plate.html name="pad-thai" caption="Pad Thai · stir-fried rice noodles" id="h1" class="plate-left" eager=true %}
-  <div class="banner-inner">
-    <p class="banner-kicker">Mabank's own</p>
-    <h1 class="banner-h1">Thai Street<br>Food</h1>
-    <p class="banner-sub">Wok-fired to order · Call ahead, skip the wait</p>
-    <div class="cta-row center">
-      {% include order-button.html class="btn-primary" %}
-      <a class="btn btn-cream" href="{{ '/menu/' | relative_url }}">See the menu</a>
-    </div>
-  </div>
-  {% include plate.html name="basil-beef" caption="Pad Kra Pow · Thai basil stir-fry" id="h2" class="plate-right" eager=true %}
-  {% include wave.html %}
-</section>
+{% include hero-slideshow.html %}
 
 <section class="story">
   <div class="container story-grid">
@@ -95,4 +82,3 @@ description: Thai Sizzle serves authentic Thai street food at the Mabank Food Tr
 </section>
 {%- endif %}
 
-{% include gallery.html %}
