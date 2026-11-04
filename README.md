@@ -14,7 +14,7 @@ Most changes are a one-file edit. No coding is needed:
 | Hours | `_data/hours.yml` |
 | Featured reviews (hand-picked, word-for-word) | `_data/reviews.yml` |
 | Google star rating and review count | `_data/google.yml` (auto-refreshed weekly) |
-| Home page slideshow photos (order + captions) | `_data/gallery.yml` and `assets/images/food/` |
+| Home page photo collage (order) | `_data/gallery.yml` and `assets/images/food/` |
 | Phone, address, Squarespace order link, Facebook | `_config.yml` → `business:` |
 | "Restaurant coming soon" banner | `_config.yml` → `restaurant_teaser:` |
 | About page text | `about.md` |

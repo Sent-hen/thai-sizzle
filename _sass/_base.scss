@@ -93,16 +93,21 @@ address { font-style: normal; }
 
 // ---------- Hero: cycling food gallery as the background ----------
 .hero { position: relative; isolation: isolate; overflow: hidden; color: #fff; min-height: clamp(560px, 86vh, 820px); display: flex; flex-direction: column; justify-content: center; padding: 6rem 0 6.5rem; background: $navy-deep; }
-.slides { position: absolute; inset: 0; z-index: -2; }
-.slide {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  opacity: 0; transform: scale(1.08); transition: opacity 1.4s ease, transform 7s ease-out;
-  &.is-active { opacity: 1; transform: scale(1); }
-}
+// Collage: three rows of photos gliding sideways in a loop (rows alternate direction)
+.collage { position: absolute; inset: -12% -6%; z-index: -2; display: flex; flex-direction: column; gap: 10px; transform: rotate(-4deg); }
+.collage-row { flex: 1; min-height: 0; overflow: hidden; }
+.collage-track { display: flex; height: 100%; width: max-content; animation: collage-left 90s linear infinite; will-change: transform; }
+.collage-row.reverse .collage-track { animation-name: collage-right; animation-duration: 110s; }
+.collage-row:nth-child(3) .collage-track { animation-duration: 70s; }
+.collage-track img { height: 100%; width: auto; aspect-ratio: 1; object-fit: cover; margin-right: 10px; border-radius: 16px; }
+.hero.is-paused .collage-track { animation-play-state: paused; }
+@keyframes collage-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes collage-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.collage-toggle { position: absolute; right: 1.25rem; bottom: 3rem; z-index: 3; background: rgba($navy-deep, .6); color: $gold-light; border: 2px solid $gold-light; border-radius: 999px; width: 44px; height: 34px; font-size: .8rem; cursor: pointer; }
 .hero-shade { // night-sky to sunset, echoing the logo
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(90deg, rgba($navy-deep, .92) 0%, rgba($navy, .72) 42%, rgba($navy, .15) 75%, rgba($navy, 0) 100%),
+    linear-gradient(90deg, rgba($navy-deep, .94) 0%, rgba($navy, .78) 40%, rgba($navy, .35) 72%, rgba($navy, .2) 100%),
     linear-gradient(0deg, rgba($orange-deep, .35) 0%, rgba($orange-deep, 0) 35%);
 }
 @media (max-width: 760px) { .hero-shade { background: linear-gradient(180deg, rgba($navy-deep, .55), rgba($navy-deep, .85)), linear-gradient(0deg, rgba($orange-deep, .35), transparent 40%); } }
@@ -111,12 +116,6 @@ address { font-style: normal; }
 .hero-title { @include gold-text; font-size: clamp(3.2rem, 9vw, 7rem); line-height: .95; margin: 0; max-width: 9ch; filter: drop-shadow(0 3px 0 rgba(0,0,0,.35)); }
 .hero-tagline { font-family: $display; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2.2rem); color: $cream; margin: .6rem 0 0; letter-spacing: .04em; }
 .hero-sub { font-family: $condensed; font-weight: 600; font-size: clamp(1.2rem, 2.2vw, 1.6rem); letter-spacing: .06em; text-transform: uppercase; margin: 1.1rem 0 0; color: $cream; }
-.hero-controls { position: absolute; left: 0; right: 0; bottom: 3.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-.slide-caption { margin: 0; font-size: 1rem; color: $cream; span { font-family: $condensed; text-transform: uppercase; letter-spacing: .1em; color: $orange; font-weight: 700; } strong { font-weight: 600; } }
-.slide-dots { display: flex; gap: .4rem; margin-left: auto; flex-wrap: wrap; }
-.dot { width: 11px; height: 11px; border-radius: 50%; border: 2px solid $gold-light; background: transparent; padding: 0; cursor: pointer; &.is-active { background: $gold-light; } }
-.slide-toggle { background: rgba($navy-deep, .6); color: $gold-light; border: 2px solid $gold-light; border-radius: 999px; width: 40px; height: 32px; font-size: .8rem; cursor: pointer; }
-@media (max-width: 700px) { .slide-dots { display: none; } .slide-toggle { margin-left: auto; } }
 
 // ---------- Banners (navy with cloud-scallop edges) ----------
 .banner { position: relative; background: $navy; color: $cream; overflow: hidden; isolation: isolate; }
