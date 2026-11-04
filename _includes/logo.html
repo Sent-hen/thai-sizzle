@@ -1,5 +1,5 @@
-{%- comment -%} The Thai Sizzle / Taste of Thai round logo. Params: class, size (px), eager {%- endcomment -%}
+{%- comment -%} Thai Sizzle round logo. Params: class, size (px), eager {%- endcomment -%}
 {%- assign sz = include.size | default: 120 -%}
 <img class="logo-badge {{ include.class }}" src="{{ '/assets/images/logo.webp' | relative_url }}"
-  width="{{ sz }}" height="{{ sz }}" alt="Thai Sizzle: Taste of Thai, Thai Food"
+  width="{{ sz }}" height="{{ sz }}" alt="Thai Sizzle logo"
   {% if include.eager %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">

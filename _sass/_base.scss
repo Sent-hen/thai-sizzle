@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------
-// Thai Sizzle: colors taken from the "Taste of Thai" logo
+// Thai Sizzle: colors taken from the round logo
 // (midnight navy sky, sunset orange, temple gold, chili red, basil
 // green, white clouds). Layout keeps the Urbanbelly-style banners,
 // cloud-scallop edges, condensed caps and round plate photos.
@@ -8,7 +8,7 @@ $navy: #13284a;        // night sky
 $navy-deep: #0b1b33;
 $orange: #f7941d;      // sunset
 $orange-deep: #e8611c;
-$gold: #e5a63b;        // "Taste of Thai" lettering
+$gold: #e5a63b;        // logo lettering
 $gold-light: #f7cf72;
 $red: #d9241b;         // chili
 $red-dark: #b01810;
@@ -71,7 +71,8 @@ address { font-style: normal; }
 // ---------- Header (navy with gold nav, logo badge overlapping) ----------
 .site-header { position: sticky; top: 0; z-index: 50; background: $navy; height: 66px; box-shadow: 0 2px 0 $gold; }
 .header-inner { width: min(1300px, 100% - 2rem); margin-inline: auto; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.brand { align-self: flex-start; margin-top: 6px; position: relative; z-index: 2; }
+.brand { align-self: flex-start; margin-top: 6px; position: relative; z-index: 2; display: flex; align-items: flex-start; gap: .9rem; text-decoration: none; }
+.wordmark { @include gold-text; font-family: $display; font-weight: 900; font-size: 1.9rem; line-height: 1; margin-top: 14px; letter-spacing: .03em; white-space: nowrap; }
 .brand .logo-badge { width: 120px; height: 120px; border-radius: 50%; box-shadow: 0 0 0 4px $gold, 0 8px 18px rgba(0,0,0,.35); background: $navy; }
 .nav-links {
   list-style: none; display: flex; align-items: center; margin: 0; padding: 0;
@@ -84,7 +85,8 @@ address { font-style: normal; }
 @media (max-width: 900px) {
   .site-header { height: auto; position: relative; }
   .header-inner { flex-direction: column; padding: .6rem 0 .8rem; gap: .5rem; }
-  .brand { align-self: center; margin: 0; }
+  .brand { align-self: center; margin: 0; align-items: center; }
+  .wordmark { margin-top: 0; font-size: 1.6rem; }
   .brand .logo-badge { width: 92px; height: 92px; }
   .nav-links { flex-wrap: wrap; justify-content: center; row-gap: .4rem; a:not(.btn) { font-size: 1.15rem; } li + li:not(.nav-cta)::before { margin: 0 .45rem; } }
 }
@@ -107,6 +109,7 @@ address { font-style: normal; }
 .hero-content { position: relative; }
 .hero-kicker { font-family: $condensed; font-weight: 700; font-size: clamp(1.1rem, 2vw, 1.4rem); letter-spacing: .12em; text-transform: uppercase; color: $orange; margin: 0 0 .5rem; }
 .hero-title { @include gold-text; font-size: clamp(3.2rem, 9vw, 7rem); line-height: .95; margin: 0; max-width: 9ch; filter: drop-shadow(0 3px 0 rgba(0,0,0,.35)); }
+.hero-tagline { font-family: $display; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2.2rem); color: $cream; margin: .6rem 0 0; letter-spacing: .04em; }
 .hero-sub { font-family: $condensed; font-weight: 600; font-size: clamp(1.2rem, 2.2vw, 1.6rem); letter-spacing: .06em; text-transform: uppercase; margin: 1.1rem 0 0; color: $cream; }
 .hero-controls { position: absolute; left: 0; right: 0; bottom: 3.2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .slide-caption { margin: 0; font-size: 1rem; color: $cream; span { font-family: $condensed; text-transform: uppercase; letter-spacing: .1em; color: $orange; font-weight: 700; } strong { font-weight: 600; } }
@@ -235,6 +238,8 @@ address { font-style: normal; }
 .footer-col a { font-family: $condensed; font-weight: 700; font-size: 1.2rem; text-transform: uppercase; letter-spacing: .05em; text-decoration: none; }
 .footer-col .g-badge { font-family: $body; font-size: 1rem; text-transform: none; letter-spacing: 0; color: $cream; }
 .footer-right { text-align: right; .g-badge { justify-content: flex-end; } }
+.footer-logo { text-align: center; }
+.footer-name { @include gold-text; font-family: $display; font-weight: 900; font-size: 1.6rem; margin: .7rem 0 0; }
 .footer-logo .logo-badge { width: 150px; height: 150px; border-radius: 50%; box-shadow: 0 0 0 4px $gold; }
 .footer-hours { color: rgba($cream, .75); font-size: .95rem; }
 .footer-bottom { text-align: center; color: rgba($cream, .6); font-size: .85rem; margin-top: 2rem; }
